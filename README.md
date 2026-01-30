@@ -5,6 +5,8 @@
 **Tagline:** "An AI-powered clinical triage & diagnostic support system built for India."
 **Mission:** Experience healthcare conversations in **Hindi, Tamil, Telugu, Kannada & more**, bridging the gap between symptoms and specialist care through advanced multimodal AI.
 
+### 🎥 [Watch the Live Demo](https://drive.google.com/file/d/1vPVeIRuyhRuSb2hGcQCi9SNGEIvNH1Zc/view?usp=sharing)
+
 ---
 
 ## 2. The Problem (Why SwasthAI?)
