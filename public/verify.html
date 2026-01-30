@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Doctor Feature Verification</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        .card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        h2 { margin-top: 0; color: #333; }
+        button { padding: 10px 20px; cursor: pointer; background: #0070f3; color: white; border: none; border-radius: 4px; font-size: 14px; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        button.stop { background: #e00; }
+        .status { margin-top: 10px; font-weight: bold; }
+        .output { background: #f5f5f5; padding: 10px; border-radius: 4px; min-height: 60px; margin-top: 10px; white-space: pre-wrap; font-family: monospace; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>System Capability Verification</h1>
+    <p>Use this tool to verify that your browser supports the necessary features for the AI Doctor.</p>
+
+    <!-- 1. Voice Recognition Test -->
+    <div class="card">
+        <h2>1. Voice Recognition (Web Speech API)</h2>
+        <div id="voiceStatus" class="status">Click Start to test...</div>
+        <div id="voiceOutput" class="output">Transcription will appear here...</div>
+        <div style="margin-top: 10px;">
+            <button id="btnStart" onclick="startRecognition()">Start Listening</button>
+            <button id="btnStop" class="stop" onclick="stopRecognition()" disabled>Stop</button>
+        </div>
+    </div>
+
+    <!-- 2. Camera/File Test -->
+    <div class="card">
+        <h2>2. Image Upload</h2>
+        <input type="file" id="fileInput" accept="image/*" onchange="handleFile(this)">
+        <div id="imgPreview" style="margin-top: 10px; max-width: 300px;"></div>
+        <div id="fileStatus" class="status"></div>
+    </div>
+
+    <script>
+        // --- Voice Recognition Logic ---
+        let recognition;
+        const btnStart = document.getElementById('btnStart');
+        const btnStop = document.getElementById('btnStop');
+        const voiceStatus = document.getElementById('voiceStatus');
+        const voiceOutput = document.getElementById('voiceOutput');
+
+        function startRecognition() {
+            if (!('webkitSpeechRecognition' in window)) {
+                voiceStatus.innerHTML = '<span class="error">❌ Web Speech API not supported in this browser. Try Chrome.</span>';
+                return;
+            }
+
+            try {
+                recognition = new webkitSpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US'; // Default to English
+
+                recognition.onstart = function() {
+                    voiceStatus.innerHTML = '<span class="success">🎤 Listening... Speak now.</span>';
+                    btnStart.disabled = true;
+                    btnStop.disabled = false;
+                    voiceOutput.textContent = '';
+                };
+
+                recognition.onerror = function(event) {
+                    voiceStatus.innerHTML = '<span class="error">❌ Error: ' + event.error + '</span>';
+                    if(event.error === 'not-allowed') {
+                        voiceOutput.textContent = 'Microphone permission denied. Please allow microphone access.';
+                    }
+                };
+
+                recognition.onend = function() {
+                    voiceStatus.innerHTML = 'Stopped.';
+                    btnStart.disabled = false;
+                    btnStop.disabled = true;
+                };
+
+                recognition.onresult = function(event) {
+                    let interim_transcript = '';
+                    let final_transcript = '';
+
+                    for (let i = event.resultIndex; i < event.results.length; ++i) {
+                        if (event.results[i].isFinal) {
+                            final_transcript += event.results[i][0].transcript;
+                        } else {
+                            interim_transcript += event.results[i][0].transcript;
+                        }
+                    }
+                    voiceOutput.innerHTML = '<strong>Final:</strong> ' + final_transcript + '<br><em>Interim:</em> ' + interim_transcript;
+                };
+
+                recognition.start();
+            } catch (e) {
+                voiceStatus.innerHTML = '<span class="error">❌ Exception: ' + e.message + '</span>';
+            }
+        }
+
+        function stopRecognition() {
+            if (recognition) {
+                recognition.stop();
+            }
+        }
+
+        // --- Image Logic ---
+        function handleFile(input) {
+            const file = input.files[0];
+            const status = document.getElementById('fileStatus');
+            const preview = document.getElementById('imgPreview');
+
+            if (file) {
+                if (file.size > 5 * 1024 * 1024) {
+                    status.innerHTML = '<span class="error">❌ File too large (>5MB)</span>';
+                    return;
+                }
+
+                status.innerHTML = '<span class="success">✅ File selected: ' + file.name + ' (' + (file.size/1024).toFixed(1) + ' KB)</span>';
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.innerHTML = '<img src="' + e.target.result + '" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

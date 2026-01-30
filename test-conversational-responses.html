@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Conversational Responses - All Languages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .language-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #3498db;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .test-case {
+            margin: 15px 0;
+            padding: 15px;
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .user-input {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .expected-response {
+            color: #27ae60;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .feature-list {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        .feature-list li {
+            margin: 8px 0;
+        }
+        .success {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .warning {
+            color: #e67e22;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>✅ Conversational Response Testing</h1>
+    <p style="text-align: center; color: #7f8c8d;">All Indian languages now use SHORT, CONVERSATIONAL style</p>
+
+    <!-- Hindi Tests -->
+    <div class="test-section">
+        <span class="language-badge">🇮🇳 Hindi (हिंदी)</span>
+        <h2>Hindi Response Examples</h2>
+        
+        <div class="test-case">
+            <div class="user-input">User: "मुझे सिर दर्द है"</div>
+            <div class="expected-response">समझ गया, आपको सिरदर्द है।
+
+कुछ सवाल:
+• यह कब से हो रहा है?
+• दर्द कैसा है - तेज़ धड़कता हुआ या हल्का?
+• क्या आपको उल्टी या चक्कर भी आ रहे हैं?</div>
+        </div>
+
+        <div class="test-case">
+            <div class="user-input">User: "बुखार है"</div>
+            <div class="expected-response">ठीक है, बुखार है।
+
+बताइए:
+• बुखार कितना है? (अगर नापा हो तो)
+• कब से है?
+• क्या ठंड लगकर बुखार आता है?
+• और कोई तकलीफ है - खांसी, दर्द, उल्टी?</div>
+        </div>
+    </div>
+
+    <!-- Marathi Tests -->
+    <div class="test-section">
+        <span class="language-badge">🇮🇳 Marathi (मराठी)</span>
+        <h2>Marathi Response Examples</h2>
+        
+        <div class="test-case">
+            <div class="user-input">User: "मला डोके दुखत आहे"</div>
+            <div class="expected-response">समजले, डोकेदुखी आहे।
+
+काही प्रश्न:
+• हे कधीपासून आहे?
+• दुखणे कसे आहे - तीव्र धडधडणारे की हलके?
+• उलटी किंवा चक्कर येते का?</div>
+        </div>
+
+        <div class="test-case">
+            <div class="user-input">User: "ताप आहे"</div>
+            <div class="expected-response">ठीक आहे, ताप आहे।
+
+सांगा:
+• ताप किती आहे? (नापले असेल तर)
+• कधीपासून आहे?
+• थंडी लागून ताप येतो का?
+• आणखी काही त्रास - खोकला, दुखणे, उलटी?</div>
+        </div>
+    </div>
+
+    <!-- Tamil Tests -->
+    <div class="test-section">
+        <span class="language-badge">🇮🇳 Tamil (தமிழ்)</span>
+        <h2>Tamil Response Examples</h2>
+        
+        <div class="test-case">
+            <div class="user-input">User: "எனக்கு தலை வலி"</div>
+            <div class="expected-response">புரிந்தது, தலைவலி இருக்கிறது।
+
+சில கேள்விகள்:
+• இது எப்போது ஆரம்பித்தது?
+• வலி எப்படி இருக்கிறது - கடுமையாக துடிக்கிறதா அல்லது லேசாக?
+• வாந்தி அல்லது தலைச்சுற்றல் இருக்கிறதா?</div>
+        </div>
+
+        <div class="test-case">
+            <div class="user-input">User: "காய்ச்சல் இருக்கிறது"</div>
+            <div class="expected-response">சரி, காய்ச்சல் இருக்கிறது।
+
+சொல்லுங்கள்:
+• காய்ச்சல் எவ்வளவு? (அளந்திருந்தால்)
+• எப்போதிலிருந்து?
+• குளிர் அடித்து காய்ச்சல் வருகிறதா?
+• வேறு ஏதாவது பிரச்சனை - இருமல், வலி, வாந்தி?</div>
+        </div>
+    </div>
+
+    <!-- Telugu Tests -->
+    <div class="test-section">
+        <span class="language-badge">🇮🇳 Telugu (తెలుగు)</span>
+        <h2>Telugu Response Examples</h2>
+        
+        <div class="test-case">
+            <div class="user-input">User: "నాకు తల నొప్పి"</div>
+            <div class="expected-response">అర్థమైంది, తలనొప్పి ఉంది.
+
+కొన్ని ప్రశ్నలు:
+• ఇది ఎప్పటినుండి ప్రారంభమైంది?
+• నొప్పి ఎలా ఉంది - తీవ్రంగా కొట్టుకుంటుందా లేదా తేలికగా?
+• వాంతులు లేదా తలతిరగడం ఉందా?</div>
+        </div>
+
+        <div class="test-case">
+            <div class="user-input">User: "జ్వరం ఉంది"</div>
+            <div class="expected-response">సరే, జ్వరం ఉంది.
+
+చెప్పండి:
+• జ్వరం ఎంత ఉంది? (కొలిచితే)
+• ఎప్పటినుండి?
+• చలి కొట్టి జ్వరం వస్తుందా?
+• ఇంకా ఏదైనా సమస్య - దగ్గు, నొప్పి, వాంతులు?</div>
+        </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="test-section">
+        <h2>✨ Key Features of Conversational Style</h2>
+        <div class="feature-list">
+            <ul>
+                <li><span class="success">✓</span> <strong>Short responses:</strong> 3-4 lines maximum</li>
+                <li><span class="success">✓</span> <strong>One question at a time:</strong> Not overwhelming</li>
+                <li><span class="success">✓</span> <strong>Natural flow:</strong> Like chatting with a real doctor</li>
+                <li><span class="success">✓</span> <strong>Progressive gathering:</strong> Asks follow-up questions based on answers</li>
+                <li><span class="success">✓</span> <strong>Indian medications:</strong> Dolo-650, Crocin, Electral, etc.</li>
+                <li><span class="success">✓</span> <strong>Emergency detection:</strong> Immediate response for critical symptoms</li>
+                <li><span class="success">✓</span> <strong>Native language only:</strong> No English mixing</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- What Was Removed -->
+    <div class="test-section">
+        <h2>🚫 What Was Removed (User Rejected)</h2>
+        <div class="feature-list" style="background: #ffebee;">
+            <ul>
+                <li><span class="warning">✗</span> Long medical assessments</li>
+                <li><span class="warning">✗</span> Risk level indicators (🔴 CRITICAL, 🟡 MEDIUM)</li>
+                <li><span class="warning">✗</span> Detailed medication lists in first response</li>
+                <li><span class="warning">✗</span> Test recommendations upfront</li>
+                <li><span class="warning">✗</span> Structured sections (📝 लक्षण विश्लेषण, 💊 भारतीय औषधे)</li>
+                <li><span class="warning">✗</span> Generic templates</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Testing Instructions -->
+    <div class="test-section">
+        <h2>🧪 How to Test</h2>
+        <ol>
+            <li>Open your application at <code>http://localhost:3000</code></li>
+            <li>Go to the chat/consultation section</li>
+            <li>Type symptoms in Hindi, Marathi, Tamil, or Telugu</li>
+            <li>Verify responses are:
+                <ul>
+                    <li>Short (3-4 lines)</li>
+                    <li>Asking ONE question at a time</li>
+                    <li>In the SAME language as input</li>
+                    <li>Conversational, not report-like</li>
+                </ul>
+            </li>
+            <li>Answer the questions and verify follow-up responses</li>
+        </ol>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; color: #7f8c8d;">
+        <p><strong>Status:</strong> <span class="success">✅ ALL LANGUAGES CONVERTED TO CONVERSATIONAL STYLE</span></p>
+        <p>File Modified: <code>app/api/chat/route.tsx</code></p>
+    </div>
+</body>
+</html>
