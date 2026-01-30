@@ -94,3 +94,59 @@ graph TD
 *   **B2B Licensing:** White-label the Triage Agent for hospitals to pre-screen patients.
 *   **Local-First AI:** Deploy 4-bit quantized models on-device for offline rural usage.
 *   **EHR Integration:** Auto-generate ICD-10 coded medical notes for doctors after the chat.
+
+---
+
+## 7. Getting Started for Developers
+
+### Prerequisites
+- Node.js 18+
+- npm/yarn/pnpm
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/sujit-al1809/eka.care_hackathon.git
+   cd eka.care_hackathon
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up Environment Variables**
+   Create a `.env.local` file in the root directory:
+   ```env
+   # API Keys
+   NEXT_PUBLIC_GEMINI_API_KEY=your_gemini_key_here
+   
+   # Database (if using Prisma)
+   DATABASE_URL="postgresql://user:password@localhost:5432/swasthai"
+
+   # Authentication
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
+   CLERK_SECRET_KEY=your_clerk_secret
+   ```
+
+4. **Run the Development Server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+---
+
+## 8. Tech Stack
+- **Frontend:** Next.js 15 (App Router), React 19, TailwindCSS, Lucide Icons
+- **AI/LLM:** Google Gemini 1.5 Flash (Multimodal)
+- **Voice/Audio:** Web Speech API, MediaRecorder, Custom VAD (Voice Activity Detection)
+- **Backend:** Next.js Serverless Functions
+- **Database:** PostgreSQL (Prisma ORM)
+- **Auth:** Clerk
+
+---
+
+## 9. License
+[MIT](LICENSE)
